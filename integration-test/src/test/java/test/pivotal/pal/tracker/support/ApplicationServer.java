@@ -42,6 +42,7 @@ public class ApplicationServer {
             .put("REGISTRATION_SERVER_RIBBON_LISTOFSERVERS", "http://localhost:8883")
             .put("APPLICATION_OAUTH_ENABLED", "false")
             .put("SPRING_ZIPKIN_ENABLED", "false")
+            .put("REGISTRATION_SERVER_ENDPOINT", "http://registration-server")
             .build()
         );
     }
@@ -49,7 +50,6 @@ public class ApplicationServer {
     public void stop() {
         serverProcess.destroyForcibly();
     }
-
 
     public static void waitOnPorts(String... ports) throws InterruptedException {
         for (String port : ports) waitUntilServerIsUp(port);
